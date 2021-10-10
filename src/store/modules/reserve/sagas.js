@@ -1,8 +1,10 @@
 import api from '../../../services/api';
+import history from '../../../services/history';
 import {addReserveSuccess,updateAmountSuccess} from './actions';
 import {call, put, all, takeLatest,select} from 'redux-saga/effects';
 
-function* addToReserve({id}){ //* eh mais poderoso que o async wait{
+
+function* addToReserve({id}){ //* eh mais poderoso que o async wait
     const tripExists = yield select(
         state => state.reserve.find(trip => trip.id === id)
     );
@@ -26,6 +28,7 @@ function* addToReserve({id}){ //* eh mais poderoso que o async wait{
             amount:1,
         };
         yield put(addReserveSuccess(data));
+        history.push('/reservas');
     }
 }
 

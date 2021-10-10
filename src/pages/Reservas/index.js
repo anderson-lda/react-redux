@@ -23,7 +23,7 @@ function incrementAmount(trip){
     return(
         <div>
             <h1 className="title">Você solicitou {reserves.length} 
-            {reserves.length>1?' reservas':'reserva'}</h1>
+            {reserves.length>1?' reservas':' reserva'}</h1>
             {reserves.map(reserve =>(
                 <div className="reservas" key={reserve.id}>
                 <img
